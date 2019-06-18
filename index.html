@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Spread Spectrum</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/black.css">
+		<link rel="stylesheet" href="css/monokai.css">
+
+	</head>
+	<body>
+
+		<div class="reveal"><div class="slides">
+
+<section>
+  <h3>Le Spread Spectrum</h3>
+  <div style="font-size:smaller">
+		<div>Présenté par :<div>
+    <ul>
+      <li>Sbaghdi Med. Akram</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+	<h4>Introduction</h4>
+	<section>
+		<p f>Le but des télécommunications est de transmettre des
+			données tout en :</p>
+		<ul>
+	    <li f>Maximisant le débit,</li>
+	    <li f>le nombre de communiquants,</li>
+	    <li f>la distance,</li>
+	    <li f>la fiabilité (pas d'intérférences et de collisions),</li>
+	    <li f>la sécurité (pas d'écoutes),</li>
+	    <li f>et en minimisant le coût (budgétaire et énergétique).</li>
+		</ul>
+	</section>
+	<section>
+		<h5>Les supports filaires</h5>
+		<ul>
+			<li f>Les débits sont très élevés (fibre optique, + de 10 Tbit/s en labo).</li>
+			<li f>Certaines zones restent inaccessibles pour le cable (les déserts,
+				les nuages, ...).</li>
+			<li f>Plus le nombre d'utilisateurs simultanés du support augmente
+				plus la fiabilité et la sécurité diminuent.</li>
+			<li f>Plus la distance couverte est grande plus le coût est élevé.</li>
+		</ul>
+	</section>
+	<section>
+		<h5>Les supports sans-fil</h5>
+		<ul>
+			<li f>Les débits sont plus faible que ceux de la fibre optique.</li>
+			<li f>Couvrent une zone plus grande.</li>
+			<li f>Le risque d'intérférence et d'écoute est très élevé.</li>
+			<li f>Le nombre d'utilisateurs peut aussi être élevé sans nuir à la
+				qualité du système.</li>
+			<li f>Les installations sont moins couteuses.</li>
+		</ul>
+	</section>
+	<section>
+		<h5>Comment augmenter le débit ?</h5>
+		<ul>
+			<li f>Augmenter la bande passante, mais <span f>impossible de dépasser la fréquence de
+				coupure, problème des hautes frèquences, ...</span></li>
+			<li f>Améliorer les supports, mais <span f>il existe des limites physiques .</span></li>
+			<li f>Transmettre plus de symboles par signal (ASK, FSK, PSK, BPSK, QPSK,
+				QAM-16, ...).</li>
+			<li f>La compression.</li>
+			<li f>Le cache.</li>
+		</ul>
+	</section>
+	<section>
+		<h5>Comment augmenter le nombre d'utilisateurs ?</h5>
+		<ul>
+			<li f>Augmenter le nombre de cables, mais <span f>coute chère et est encombrant.</span></li>
+			<li f>Envoyer plusieurs signaux sur le même support, mais <span f>peut causer des interférences.</span></li>
+			<li f>TDM, STDM, TDD, FDM, OFDM, OFDMA, FDD, multipléxage hybride, ...</li>
+			<li f>Certaines de ces solutions gaspillent du débit.</li>
+		</ul>
+	</section>
+</section>
+
+<section>
+	<h4>Le Spread Spectrum</h4>
+
+	<section>
+		<ul>
+			<li f>Permet d'utiliser tout le spèctre par tout le monde.</li>
+			<li f>Il existe deux type de SS : FHSS, DSSS.</li>
+		</ul>
+		<img src="img/FHSS-DSSS.png" f></img>
+	</section>
+
+	<section>
+		<h5>FHSS (Frequency Hopping Spread Spectrum)</h5>
+		<ul>
+			<li f>Utilisation d'une large bande de frèquences.</li>
+			<li f>L'émetteur varie la fréquence de transmission des centaines de fois
+				par secondes.</li>
+			<li f>Utiliser par les militaires, dans le Bluetooth (1600 sauts par
+				secondes) et dans certaines versions de 802.11.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>FHSS (Frequency Hopping Spread Spectrum)</h5>
+		<p f>Avantages :</p>
+		<ul>
+			<li f>Résistance au phénomène d'évanouissment par propagation
+				multitrajet, aux intérférences, au brouillage et à l'écoute.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>FHSS (Frequency Hopping Spread Spectrum)</h5>
+		<p f>Inconvénients :</p>
+		<ul>
+			<li f>Nécessite que l'émetteur et le récepteur connaissent la séquence des
+				fréquences et soient synchronisés.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>DSSS (Direct Sequence Spread Spectrum)</h5>
+		<ul>
+			<li f>Utilise une séquence de codes pour étaler le signal sur une large
+				bande de fréquences.</li>
+			<li f>Une application majeure de cette technique est le CDMA.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>CDMA (Code Division Multiple Access)</h5>
+		<ul>
+			<li f>Principe: donner à chaque utilisateur une séquence unique de taille
+				$m$.</li>
+			<li f>Cette séquence est constitué de $1$ ou de $-1$;</li>
+			<li f>Exemple: $A = \begin{pmatrix} -1 & 1 & 1 & -1 \end{pmatrix}$</li>
+			<li f>Pour transmettre un bit à 1 elle envoie $A$.</li>
+			<li f>Pour transmettre un bit à 0 elle envoie	$\overline{A}
+				= \begin{pmatrix} 1 & -1 & -1 & 1 \end{pmatrix}$.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>CDMA (Code Division Multiple Access)</h5>
+		<ul>
+			<li f>Si deux machines envoient au même temps les séquences s'aditionnent.</li>
+			<li f>Exemple: $A + B = \begin{pmatrix} 1 \\ -1 \\ -1 \\ 1 \end{pmatrix} +
+			\begin{pmatrix} 1 \\ -1 \\ 1 \\ -1 \end{pmatrix} =
+			\begin{pmatrix} 0 \\ 0 \\ 2 \\ -2 \end{pmatrix}$</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>CDMA (Code Division Multiple Access)</h5>
+		<ul>
+			<li f>On définie le produit interne $\cdot$ par : </li>
+			<li f>$A\cdot B = B\cdot A = \frac{1}{m}\sum_{i=1}^m A_iB_i$</li>
+			<li f>$A\cdot B = \begin{cases}
+      -1 & \textrm{si } B = \overline{A} \\
+      \phantom{-}0 & \textrm{si } B \perp A \\
+			\phantom{-}1 & \textrm{si } B = A
+    	\end{cases}$.</li>
+			<li f>$A\cdot(B + C + D) = A\cdot B + A\cdot C + A\cdot D$</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>CDMA (Code Division Multiple Access)</h5>
+		<ul>
+			<li f>Quand une séquence $S$ arrive chez le recepteur qui veut écouter le
+				message de la machine $M_A$ il fait :</li>
+			<li f>$A\cdot S = \begin{cases}
+				-1 & M_A \textrm{ a envoyé un } 0 \\
+				\phantom{-}0 & M_A \textrm{ n'a pas envoyé de message} \\
+				\phantom{-}1 & M_A \textrm{ a envoyé un } 1
+				\end{cases}$</li>
+		</ul>
+	</section>
+
+	<section>
+		<h5>CDMA (Code Division Multiple Access)</h5>
+		<ul>
+			<li f>Utiliser dans les réseaux cellulaires,
+				les réseaux de communication par satellite
+				et par cable.</li>
+			<li f>Il est utilisé dans les systèmes mobiles de 2G (IS-95) et 3G
+				(Wideband CDMA ou Universal Mobile Telecommunications Systems de
+				Ericsson et CDMA2000 de Qualcomm).</li>
+		</ul>
+	</section>
+
+</section>
+
+<section>
+	<h3>Fin.</h3>
+</section>
+
+
+		</div></div>
+
+		<script src="js/reveal.js"></script>
+		<script src="js/jquery.slim.min.js"></script>
+		<script>
+$('[f]').each(function() {
+  this.classList.add("fragment");
+});
+Reveal.initialize({
+	hash: true,
+	math: {
+		mathjax: 'MathJax/MathJax.js',
+		config: 'TeX-AMS_CHTML'
+	},
+	dependencies: [
+		{ src: 'js/highlight.js', async: true },
+		{ src: 'js/math.js', async: true }
+	]
+});
+Reveal.configure({ slideNumber: 'c/t' });
+		</script>
+	</body>
+</html>
